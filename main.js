@@ -244,12 +244,13 @@ $(function() {
         const char = chars.shift();
         if ((char === "\n" && chars[0] == "\n") || chars.length === 0) {
             if (accum) {
-                chars.shift();
                 const p = $("<span>").text(accum).insertBefore($(".placeholder"));
                 $("<br>").insertAfter(p);
                 p[0].scrollIntoView();
                 if (chars.length === 0) {
                     $(".placeholder").text("");
+                } else {
+                    chars.shift();
                 }
             }
             accum = "";
